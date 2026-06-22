@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyanka Gandhi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0D0D0D;
+    --ink-soft: #5A5A5A;
+    --ink-faint: #ABABAB;
+    --paper: #F7F5F0;
+    --accent: #C8522A;
+    --rule: #E0DDD8;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(247,245,240,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-left {
+    padding: 5rem 3rem 5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--rule);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+  }
+
+  .hero-bio {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 3rem;
+    color: var(--ink);
+  }
+
+  .hero-bio strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--ink);
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.85rem 1.75rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+
+  .hero-cta:hover { background: var(--accent); }
+
+  .hero-right {
+    padding: 5rem 2.5rem 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 3rem;
+  }
+
+  .stat-cell {
+    background: var(--white);
+    padding: 1.75rem 1.5rem;
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-num span {
+    color: var(--accent);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .hero-quote {
+    border-left: 2px solid var(--accent);
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 2.5rem;
+    border-top: 1px solid var(--rule);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* STORY */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .story-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--ink);
+  }
+
+  .story-text p + p { margin-top: 1.25rem; }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .timeline-item:first-child { border-top: 1px solid var(--rule); }
+
+  .timeline-year {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--accent);
+    padding-top: 0.1rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* WORK */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .work-card {
+    background: var(--white);
+    padding: 2rem;
+    transition: transform 0.2s;
+  }
+
+  .work-card:hover { transform: translateY(-4px); }
+
+  .work-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .work-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .work-card p {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .work-metric {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .work-metric-label {
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .skill-group {
+    background: var(--white);
+    padding: 1.75rem;
+  }
+
+  .skill-group h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-list li {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    padding-left: 0.75rem;
+    position: relative;
+  }
+
+  .skill-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--rule);
+  }
+
+  /* WHY */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .why-text p + p { margin-top: 1.25rem; }
+
+  .why-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .why-item {
+    padding: 1.5rem;
+    background: var(--white);
+    border-left: 2px solid var(--accent);
+  }
+
+  .why-item h4 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+
+  .why-item p {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--ink);
+    color: var(--white);
+    padding: 5rem 2.5rem;
+    text-align: center;
+  }
+
+  .contact-section .section-label { color: var(--accent); }
+
+  .contact-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin: 1rem 0 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.75rem;
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .contact-link.primary {
+    background: var(--accent);
+    color: var(--white);
+  }
+
+  .contact-link.secondary {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+  }
+
+  .contact-link:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 4rem 1.5rem 3rem; }
+    .hero-right { padding: 3rem 1.5rem; }
+    .story-grid, .why-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+  }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Priyanka Gandhi</div>
+  <ul class="nav-links">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#why">Fellowship</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Builder · Founder · AI Operator</p>
+    <h1 class="hero-name">Priyanka<br><em>Gandhi</em></h1>
+    <p class="hero-title">Bangalore, India — Building distribution infrastructure for the AI era</p>
+    <p class="hero-bio">
+      I started building at 14. Not because someone told me to —
+      because <strong>nobody around me was doing it</strong>, and that felt like the wrong answer.
+      From leading MUN in a school that didn't know what MUN was,
+      to founding a clothing brand at 15, to building
+      <strong>CREATR</strong> — the distribution layer consumer AI apps don't have yet.
+    </p>
+    <a href="#work" class="hero-cta">See what I've built →</a>
+  </div>
+  <div class="hero-right">
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="stat-num">14<span>yrs</span></div>
+        <div class="stat-label">Age I started</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">3<span>+</span></div>
+        <div class="stat-label">Ventures built</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">0<span>$</span></div>
+        <div class="stat-label">Outside capital</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">10<span>x</span></div>
+        <div class="stat-label">Target cost reduction</div>
+      </div>
+    </div>
+    <p class="hero-quote">
+      "In India, distribution is the unsolved problem.
+      I'm building the infrastructure that doesn't exist yet —
+      so the next wave of AI founders doesn't have to guess."
+    </p>
+  </div>
+</div>
+
+<!-- STORY -->
+<section id="story">
+  <div class="section-header">
+    <span class="section-label">Background</span>
+    <div class="section-rule"></div>
+  </div>
+  <h2 class="section-title" style="margin-bottom:3rem;">Built different,<br><em style="font-family:'DM Serif Display',serif; font-style:italic; color:var(--accent);">from the start</em></h2>
+  <div class="story-grid fade-in">
+    <div class="story-text">
+      <p>
+        I grew up in a classic Indian high school where entrepreneurship
+        was not a subject — it was barely a concept. Public speaking
+        was for the annual day. AI was science fiction.
+      </p>
+      <p>
+        So I built my own curriculum. I took initiative on things
+        nobody else was doing — and learned what it means to ship
+        something from nothing with zero institutional support.
+      </p>
+      <p>
+        At 15, I founded a clothing brand. Not a school project —
+        a real brand that got recognition beyond the school gates.
+        I learned customer discovery, Instagram growth, and
+        what separates a product from a business.
+      </p>
+      <p>
+        Then I started helping other brands scale on Instagram.
+        That's when the distribution obsession clicked:
+        the problem wasn't the product, it was always the reach.
+        Every founder I worked with had the same unsolved question —
+        <em>how do I get people to actually see this?</em>
+      </p>
+      <p>
+        CREATR is my answer. The distribution infrastructure
+        consumer AI apps don't have yet — and the reason
+        I'm applying to Claude Corps.
+      </p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">14</div>
+        <div class="timeline-content">
+          <h4>First initiative</h4>
+          <p>Took the lead on building something from zero in a school where nobody else was doing it. First lesson in starting without permission.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">15</div>
+        <div class="timeline-content">
+          <h4>Clothing brand</h4>
+          <p>Founded, launched, and grew a clothing brand. Got school recognition. Learned product, growth, and ops simultaneously.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">16</div>
+        <div class="timeline-content">
+          <h4>Brand growth operator</h4>
+          <p>Helped multiple brands scale their Instagram presence. Discovered the distribution problem nobody was solving.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">17</div>
+        <div class="timeline-content">
+          <h4>Building CREATR</h4>
+          <p>Distribution infrastructure for consumer AI apps. The performance layer for the organic feed. Building in public.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" style="background:var(--white); max-width:100%; padding:6rem 2.5rem;">
+<div style="max-width:1200px; margin:0 auto;">
+  <div class="section-header">
+    <span class="section-label">Projects</span>
+    <div class="section-rule"></div>
+  </div>
+  <h2 class="section-title" style="margin-bottom:3rem;">What I've<br><em style="font-family:'DM Serif Display',serif; font-style:italic; color:var(--accent);">shipped</em></h2>
+  <div class="work-grid fade-in">
+    <div class="work-card">
+      <p class="work-tag">2026 — Present</p>
+      <h3>CREATR</h3>
+      <p>Distribution infrastructure for consumer AI apps. Combines AI-powered hook identification, multi-account swarm distribution, and the first dataset mapping content DNA to actual signups — not just views.</p>
+      <div class="work-metric">10×</div>
+      <div class="work-metric-label">Target CAC reduction vs paid ads</div>
+      <a href="https://creatrugc.com" target="_blank" style="display:inline-block;margin-top:1.25rem;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px;">Visit creatrugc.com →</a>
+    </div>
+    <div class="work-card">
+      <p class="work-tag">2025 — Present</p>
+      <h3>Clipping Agent</h3>
+      <p>Built an internal AI pipeline: yt-dlp ingestion → Whisper transcription → Claude clip selection → FFmpeg cut and caption → multi-account distribution. Automates what takes humans hours.</p>
+      <div class="work-metric">40–50</div>
+      <div class="work-metric-label">Posts per day, fully automated</div>
+    </div>
+    <div class="work-card">
+      <p class="work-tag">2023 — 2024</p>
+      <h3>Clothing Brand</h3>
+      <p>Founded at 15. Handled product development, Instagram growth, customer discovery, and brand operations independently. First lesson in the gap between building a product and building a distribution engine.</p>
+      <div class="work-metric">Solo</div>
+      <div class="work-metric-label">Zero outside capital or team</div>
+      <a href="https://instagram.com/halfcold.store" target="_blank" style="display:inline-block;margin-top:1.25rem;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px;">@halfcold.store →</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-label">Capabilities</span>
+    <div class="section-rule"></div>
+  </div>
+  <h2 class="section-title" style="margin-bottom:3rem;">What I<br><em style="font-family:'DM Serif Display',serif; font-style:italic; color:var(--accent);">work with</em></h2>
+  <div class="skills-grid fade-in">
+    <div class="skill-group">
+      <h4>AI & Automation</h4>
+      <ul class="skill-list">
+        <li>Claude API</li>
+        <li>ChatGPT / GPT-4</li>
+        <li>Whisper (local)</li>
+        <li>Prompt engineering</li>
+        <li>Agent workflows</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Technical</h4>
+      <ul class="skill-list">
+        <li>Python / Flask</li>
+        <li>FFmpeg pipelines</li>
+        <li>Supabase</li>
+        <li>n8n automations</li>
+        <li>GitHub / Vercel</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Growth & Distribution</h4>
+      <ul class="skill-list">
+        <li>Multi-account ops</li>
+        <li>Hook identification</li>
+        <li>Content replication</li>
+        <li>YouTube / IG APIs</li>
+        <li>Performance tracking</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Operator</h4>
+      <ul class="skill-list">
+        <li>Customer discovery</li>
+        <li>GTM strategy</li>
+        <li>Cold outreach</li>
+        <li>Startup execution</li>
+        <li>Build-in-public</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHY FELLOWSHIP -->
+<section id="why" style="background:var(--white); max-width:100%; padding:6rem 2.5rem;">
+<div style="max-width:1200px; margin:0 auto;">
+  <div class="section-header">
+    <span class="section-label">Claude Corps</span>
+    <div class="section-rule"></div>
+  </div>
+  <h2 class="section-title" style="margin-bottom:3rem;">Why this<br><em style="font-family:'DM Serif Display',serif; font-style:italic; color:var(--accent);">fellowship</em></h2>
+  <div class="why-grid fade-in">
+    <div class="why-text">
+      <p>
+        I'm not applying to Claude Corps because I want a job.
+        I'm applying because the work I'm doing — building
+        AI-native distribution infrastructure — lives at the
+        exact intersection of what Anthropic is building
+        and what the world needs next.
+      </p>
+      <p>
+        I've used Claude as a cofounder, a strategist, a coder,
+        and a thinking partner. I understand what it can do
+        and more importantly what it can't yet.
+        That gap is where I want to build.
+      </p>
+      <p>
+        I take initiative without a PM. I'm energized by
+        ambiguity — every company I've built was started
+        in a vacuum. And I can explain a technical system
+        to a non-technical room because I've had to,
+        from the day I first had to explain something
+        that didn't exist yet to someone who didn't believe in it.
+      </p>
+    </div>
+    <ul class="why-list">
+      <li class="why-item">
+        <h4>Built end-to-end, alone</h4>
+        <p>Every project scoped, shipped, and iterated without a team. I wear every hat and know when to take each off.</p>
+      </li>
+      <li class="why-item">
+        <h4>AI-native from the start</h4>
+        <p>Not retrofitting AI into old workflows — building systems where AI is the core operator from day one.</p>
+      </li>
+      <li class="why-item">
+        <h4>Social impact baked in</h4>
+        <p>Distribution infrastructure lowers the cost of being heard. For founders in Bangalore, Lagos, or Jakarta — that changes everything.</p>
+      </li>
+      <li class="why-item">
+        <h4>Energized by hard problems</h4>
+        <p>Organic attribution is "unsolvable." Multi-account distribution "violates ToS." I find both more interesting because of that.</p>
+      </li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <p class="section-label">Get in touch</p>
+  <h2 class="contact-title">Let's build<br><em>something real</em></h2>
+  <div class="contact-links">
+    <a href="mailto:priyankagandhi326@gmail.com" class="contact-link primary">
+      Email me
+    </a>
+    <a href="https://www.linkedin.com/in/priyanka-gandhi-8998a3276/" class="contact-link secondary" target="_blank">
+      LinkedIn
+    </a>
+    <a href="https://creatrugc.com" class="contact-link secondary" target="_blank">
+      CREATR →
+    </a>
+    <a href="https://instagram.com/halfcold.store" class="contact-link secondary" target="_blank">
+      @halfcold.store
+    </a>
+  </div>
+</div>
+
+<script>
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
